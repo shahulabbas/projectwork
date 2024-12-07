@@ -2,96 +2,102 @@ import React, { useState, useEffect } from "react";
 import './home.css';
 import Header from './Headerpage';
 import Leftnavigation from './Leftnavigation';
+
 const Home = () => {
-  const [news, setNews] = useState([]);
+  const [news, setNews] = useState([]); // Store all news items
+
   useEffect(() => {
-    fetch('http://localhost/backend/news.php') // Replace with your server URL
-      .then(response => response.json())
-      .then(data => setNews(data))
-      .catch(error => console.error('Error fetching data:', error));
+    fetch('http://localhost/GitHub/projectwork/backend/news.php')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Data:', data);
+        setNews(data); // Populate news data
+      })
+      .catch((error) => console.error('Error fetching data:', error));
   }, []);
+
+  const handleUpdateNews = (id, title, url, upload_date) => {
+    // Validate input fields to check if they are empty
+    if (!title || !url || !upload_date) {
+      alert("Please fill all fields before updating news.");
+      return; // Stop the update process if any field is empty
+    }
+
+    fetch('http://localhost/GitHub/projectwork/backend/homedata.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id,
+        title,
+        url,
+        upload_date,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); // Check if the response is successful
+        if (data.status === 'error') {
+          alert(data.message); // Show alert for error messages
+        } else {
+          alert('News updated successfully!');
+        }
+      })
+      .catch(error => {
+        console.error('Error updating news:', error);
+        alert('Error: Failed to update news');
+      });
+  };
+
   return (
     <div className="homecontainer">
-      <div className='box1'>
-        <Header/>
+      <div className="box1">
+        <Header />
       </div>
-      <div className='box2'>
-        <div  >
-          <Leftnavigation/>
+      <div className="box2">
+        <div>
+          <Leftnavigation />
         </div>
-    
-      <form action="">
-        <div className='form form1'>
-        <legend>news-1</legend>
-        <label htmlFor="">title</label>
-        <input type="text" id='title' name='title' placeholder='Enter the title of the Update'/>
-        <label htmlFor="">link</label>
-        <input type="url" name="url" id="url" placeholder='Enter the URL'/>
-        <label htmlFor="">upload date</label>
-        <input type="date" name='date' id='date'/>
-        <input type="submit" />
 
-        </div>
-        <div className='form form2'>
-        <legend>news-2</legend>
-        <label htmlFor="">title</label>
-        <input type="text" id='title' name='title' placeholder='Enter the title of the Update'/>
-        <label htmlFor="">link</label>
-        <input type="url" name="url" id="url" placeholder='Enter the URL'/>
-        <label htmlFor="">upload date</label>
-        <input type="date" name='date' id='date'/>
-        <input type="submit" />
-
-        </div>
-        <div className='form form3'>
-        <legend>news-3</legend>
-        <label htmlFor="">title</label>
-        <input type="text" id='title' name='title' placeholder='Enter the title of the Update'/>
-        <label htmlFor="">link</label>
-        <input type="url" name="url" id="url" placeholder='Enter the URL'/>
-        <label htmlFor="">upload date</label>
-        <input type="date" name='date' id='date'/>
-        <input type="submit" />
-
-        </div>
-        <div className='form form4'>
-        <legend>news-4</legend>
-        <label htmlFor="">title</label>
-        <input type="text" id='title' name='title' placeholder='Enter the title of the Update'/>
-        <label htmlFor="">link</label>
-        <input type="url" name="url" id="url" placeholder='Enter the URL'/>
-        <label htmlFor="">upload date</label>
-        <input type="date" name='date' id='date'/>
-        <input type="submit" />
-        </div>
-        <div className='form form5'>
-        <legend>news-5</legend>
-        <label htmlFor="">title</label>
-        <input type="text" id='title' name='title' placeholder='Enter the title of the Update'/>
-        <label htmlFor="">link</label>
-        <input type="url" name="url" id="url" placeholder='Enter the URL'/>
-        <label htmlFor="">upload date</label>
-        <input type="date" name='date' id='date'/>
-        <input type="submit" />
-
-        </div>
-        <div className='form form6'>
-        <legend>news-6</legend>
-        <label htmlFor="">title</label>
-        <input type="text" id='title' name='title' placeholder='Enter the title of the Update'/>
-        <label htmlFor="">link</label>
-        <input type="url" name="url" id="url" placeholder='Enter the URL'/>
-        <label htmlFor="">upload date</label>
-        <input type="date" name='date' id='date'/>
-        <input type="submit" />
-
-        </div>
-      </form>
-  
+        <form action="">
+          {news.length === 0 ? (
+            <div>No news data available</div> // Show message if no news is available
+          ) : (
+            news.map((item, index) => (
+              <div className={`form form${index + 1}`} key={index}>
+                <legend>{`news-${index + 1}`}</legend>
+                <label htmlFor={`title-${index + 1}`}>Title</label>
+                <input
+                  type="text"
+                  id={`title-${index + 1}`}
+                  name={`title[${index + 1}]`}
+                  placeholder={item.title || `Enter the title of the Update ${index + 1}`}
+                   onChange={(e) => item.title = e.target.value} // Handle title change
+                />
+                <label htmlFor={`url-${index + 1}`}>Link</label>
+                <input
+                  type="url"
+                  id={`url-${index + 1}`}
+                  name={`url[${index + 1}]`}
+                  placeholder={item.url || `Enter the URL for news ${index + 1}`}
+                   onChange={(e) => item.url = e.target.value} // Handle URL change
+                />
+                <label htmlFor={`date-${index + 1}`}>Upload Date</label>
+                <input
+                  type="date"
+                  id={`date-${index + 1}`}
+                  name={`date[${index + 1}]`}
+                   onChange={(e) => item.upload_date = e.target.value} // Handle date change
+                />
+                <button id="submit" type="button" onClick={() => handleUpdateNews(item.id, item.title, item.url, item.upload_date)}>Update News</button>
+              </div>
+            ))
+          )}
+        </form>
+      </div>
     </div>
-    </div>
+  );
+};
 
-  )
-}
-
-export default Home
+export default Home;

@@ -1,23 +1,23 @@
 <?php
-// Database connection settings
+// Allow cross-origin requests
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 require('connection.php');
 // Fetch data from the database
-$sql = "SELECT title, url, date FROM news";
+$sql = "SELECT id, title, url, date AS upload_date FROM news";
 $result = $conn->query($sql);
 
 $newsData = [];
 
 if ($result->num_rows > 0) {
-    // Output data for each row
     while ($row = $result->fetch_assoc()) {
         $newsData[] = $row;
     }
 }
 
-// Set the header for JSON response
+// Output data in JSON format
 header('Content-Type: application/json');
-
-// Output the data in JSON format
 echo json_encode($newsData);
 
 // Close the connection

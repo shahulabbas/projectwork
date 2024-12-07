@@ -47,10 +47,11 @@
     padding: 10px;
 }
 
-.homecontainer .box2 form .form input[type=submit] {
+.homecontainer .box2 form .form #submit {
     margin: 10px 0 0 0;
     border: none;
     background: green;
     cursor: pointer;
     color: #fff;
+    padding: 10px;
 }

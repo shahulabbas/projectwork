@@ -2,3 +2,55 @@
     margin: 0;
     padding: 0;
 }
+
+.homecontainer {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.homecontainer .box2 {
+    display: flex;
+}
+
+.homecontainer .box2 form {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    height: auto;
+    overflow-y: scroll;
+}
+
+.homecontainer .box2 form .form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    text-transform: capitalize;
+    background-color: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.homecontainer .box2 form .form legend {
+    text-align: center;
+}
+
+.homecontainer .box2 form .form label {
+    margin: 10px 0;
+}
+
+.homecontainer .box2 form .form input {
+    padding: 10px;
+}
+
+.homecontainer .box2 form .form input[type=submit] {
+    margin: 10px 0 0 0;
+    border: none;
+    background: green;
+    cursor: pointer;
+    color: #fff;
+}

@@ -12,7 +12,6 @@ const Leftnavigation = () => {
 
   // jQuery logic
   useEffect(() => {
-    $(".homecontainer").hide();
     $(".other-container").hide();
 
     $(".dept").hide();
@@ -38,10 +37,7 @@ const Leftnavigation = () => {
     };
   }, []);
 
-  const showHomeComponent = () => {
-    $(".homecontainer").show();
-    $(".other-container").hide();
-  };
+ 
 
   const handleLogout = () => {
     sessionStorage.removeItem("username"); // Clear session
@@ -56,7 +52,7 @@ const Leftnavigation = () => {
         </div>
         <div className="dropdown-container">
           <div className="departments">
-            <button className="home" onClick={showHomeComponent}>
+            <button className="home" onClick={() => navigate("/Home") }>
               HOME
               <FontAwesomeIcon icon={faHome} id="home" />
             </button>
@@ -118,13 +114,7 @@ const Leftnavigation = () => {
       </div>
 
       <div className="right-content">
-        <div className="homecontainer">
-          <Home />
-        </div>
-
-        <div className="other-container">
-          Select an option from the menu to view its content.
-        </div>
+       
       </div>
     </div>
   );

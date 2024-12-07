@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container1 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #002147;
+    padding: 5px 20px;
+    z-index: 2;
+}
+
+header .left {
+    display: grid;
+    place-items: center;
+}
+
+header .left img {
+    height: 80px;
+}
+
+header .right {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .right nav {
+    width: 100%;
+}
+
+header .right nav ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .right nav ul li {
+    position: relative;
+}
+
+header .right nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    margin: 0 20px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+header .right nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+header .right nav ul li a:hover::after {
+    width: 100%;
+}
+
+header .right nav ul button {
+    padding: 10px 20px;
+    background: #0078D7;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logincontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #00191C;
+    height: 100vh;
+    margin: 15px 10px 0 10px;
+    border-radius: 20px 20px 0 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+
+.logincontainer>.box1 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logincontainer .box1 img {
+    width: 70%;
+}
+
+.logincontainer .box2 {
+    width: 50%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 2px solid #fff;
+}
+
+.logincontainer .box2 form {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+    text-align: center;
+}
+
+.logincontainer .box2 form .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logincontainer .box2 form .text p {
+    padding-top: 20px;
+}
+
+.logincontainer .box2 form .input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logincontainer .box2 form .input input {
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.logincontainer .box2 form .input input[type=submit] {
+    width: 110%;
+    background-color: #EA4822;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.logincontainer .box2 form .input .password {
+    width: 110%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.logincontainer .box2 form .input .password .showpassword {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.logincontainer .box2 form .input .password a {
+    text-decoration: none;
+    color: #0078D7;
+}
+
+.main {
+    display: flex;
+    background-color: lightgray;
+}
+
+.main .left {
+    height: 88.9vh;
+    background-color: #343643;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    overflow-y: scroll;
+}
+
+
+/* it is for left navigation stailing */
+
+.image {
+    display: grid;
+    place-items: center;
+}
+
+.image img {
+    width: 100px;
+}
+
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.departments {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.department {
+    background: none;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    border-radius: 10px;
+}
+
+.departments button {
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    color: #000;
+}
+
+.departments button:hover {
+    background: #000;
+    color: #fff;
+}
+
+.departments .dept,
+.event {
+    display: flex;
+    flex-direction: column;
+}
+
+.toggleButton,
+.events {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggleButton #build {
+    margin: 0 10px;
+    font-size: 30px;
+}
+
+.toggleButton,
+.events {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.events #event {
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.toggleButton #down,
+#right {
+    margin: 0 10px;
+}
+
+.events #down1,
+#right1 {
+    margin: 0 10px;
+}
+
+.departments .acadamic,
+.departments .hostel,
+.departments .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.departments .acadamic #acadamic {
+    margin: 10px;
+}
+
+.departments .hostel #hostel {
+    margin: 10px;
+}
+
+.departments .home #home {
+    margin: 10px;
+}

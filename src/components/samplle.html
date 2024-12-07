@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        .dropdown-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .dropdown {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .dropdown button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+        
+        .dropdown button:hover {
+            background-color: #0056b3;
+        }
+        
+        .dropdown-content {
+            display: none;
+            background-color: #f9f9f9;
+            width: 100%;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            flex-direction: column;
+            margin-top: 5px;
+        }
+        
+        .dropdown-content button {
+            background: none;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+        }
+        
+        .dropdown-content button:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .show {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dropdown-container">
+        <div class="dropdown">
+            <button onclick="toggleDropdown('departmentsDropdown')">Departments</button>
+            <div class="dropdown-content" id="departmentsDropdown">
+                <button>General Section</button>
+                <button>CME Department</button>
+                <button>ECE Department</button>
+                <button>EEE Department</button>
+                <button>MECH Department</button>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button onclick="toggleDropdown('eventsDropdown')">Events</button>
+            <div class="dropdown-content" id="eventsDropdown">
+                <button>General Event</button>
+                <button>CME Event</button>
+                <button>ECE Event</button>
+                <button>EEE Event</button>
+                <button>MECH Event</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(dropdownId) {
+            // Hide all dropdowns
+            const dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(dropdown => {
+                if (dropdown.id !== dropdownId) {
+                    dropdown.classList.remove('show');
+                }
+            });
+
+            // Toggle the clicked dropdown
+            const dropdown = document.getElementById(dropdownId);
+            dropdown.classList.toggle('show');
+        }
+
+        // Close the dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown button')) {
+                const dropdowns = document.querySelectorAll('.dropdown-content');
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            }
+        };
+    </script>
+</body>
+
+</html>

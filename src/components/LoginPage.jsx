@@ -21,7 +21,7 @@ const LoginPage = () => {
       const response = await axios.post(url, fData);
 
       if (response.data.status === "success") {
-        // Login was successful
+        sessionStorage.setItem('username', username);
         navigate("/dashboard");  // Redirect to dashboard after login
       } else {
         // If login failed

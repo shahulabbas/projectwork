@@ -208,6 +208,8 @@ header .right nav ul button {
 
 .image img {
     width: 100px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 .dropdown-container {
@@ -254,7 +256,7 @@ header .right nav ul button {
 
 .toggleButton #build {
     margin: 0 10px;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .toggleButton,
@@ -281,20 +283,32 @@ header .right nav ul button {
 
 .departments .acadamic,
 .departments .hostel,
-.departments .home {
+.departments .home,
+.departments .logout {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .departments .acadamic #acadamic {
-    margin: 10px;
+    margin: 0 10px;
 }
 
 .departments .hostel #hostel {
-    margin: 10px;
+    margin: 0 10px;
+    font-size: 20px;
 }
 
 .departments .home #home {
-    margin: 10px;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.departments .logout #logout {
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.departments .logout:hover {
+    background: red;
 }

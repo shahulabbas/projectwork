@@ -45,7 +45,7 @@ const Leftnavigation = () => {
 
   const handleLogout = () => {
     sessionStorage.removeItem("username"); // Clear session
-    navigate("/app"); // Redirect to login page
+    navigate("/"); // Redirect to login page
   };
 
   return (

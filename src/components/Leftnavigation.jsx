@@ -4,20 +4,19 @@ import "./navigation.css";
 import $ from "jquery";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowRight, faBuilding, faCalendar, faGraduationCap, faBed, faHome, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import Admin from '../images/admin.png';
 import Home from './Homemenu';
-
-const Leftnavigation = () => {
+import General from './Generaldepartment'
+ const Leftnavigation = () => {
   const navigate = useNavigate(); // Initialize useNavigate
 
   // jQuery logic
   useEffect(() => {
     $(".other-container").hide();
 
-    $(".dept").hide();
-    $(".event").hide();
-    $("#down").hide();
-    $("#down1").hide();
+    $(".dept").show();
+    $(".event").show();
+    $("#right").hide();
+    $("#right1").hide();
 
     $(".toggleButton").on("click", () => {
       $(".dept").toggle();
@@ -47,9 +46,7 @@ const Leftnavigation = () => {
   return (
     <div className="main">
       <div className="left">
-        <div className="image">
-          <img src={Admin} alt="Admin" />
-        </div>
+      
         <div className="dropdown-container">
           <div className="departments">
             <button className="home" onClick={() => navigate("/Home") }>
@@ -66,7 +63,7 @@ const Leftnavigation = () => {
               <FontAwesomeIcon icon={faBuilding} id="build" />
             </button>
             <div className="dept">
-              <button>General Department</button>
+              <button onClick={() => navigate("/General") }>General Department</button>
               <button>CME Department</button>
               <button>ECE Department</button>
               <button>EEE Department</button>

@@ -20,7 +20,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     padding: 20px;
-    height: auto;
+    height: 80vh;
     overflow-y: scroll;
 }
 

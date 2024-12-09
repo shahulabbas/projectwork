@@ -191,7 +191,7 @@ header .right nav ul button {
 
 .main .left {
     height: 88.9vh;
-    background-color: #343643;
+    background-color: #5E5E5E;
     display: flex;
     flex-direction: column;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
@@ -215,12 +215,12 @@ header .right nav ul button {
 .dropdown-container {
     display: flex;
     flex-direction: column;
+    margin: 20px 0;
 }
 
 .departments {
     display: flex;
     flex-direction: column;
-    margin: 10px;
 }
 
 .department {
@@ -233,11 +233,12 @@ header .right nav ul button {
     padding: 20px;
     cursor: pointer;
     border: none;
-    color: #000;
+    color: #fff;
+    background-color: transparent;
 }
 
 .departments button:hover {
-    background: #000;
+    background: #83B135;
     color: #fff;
 }
 

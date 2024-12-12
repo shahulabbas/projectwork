@@ -5,39 +5,13 @@ import $ from "jquery";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowRight, faBuilding, faCalendar, faGraduationCap, faBed, faHome, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import Home from './Homemenu';
-import General from './Generaldepartment'
- const Leftnavigation = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
-
-  // jQuery logic
-  useEffect(() => {
-    $(".other-container").hide();
-
-    $(".dept").show();
-    $(".event").show();
-    $("#right").hide();
-    $("#right1").hide();
-
-    $(".toggleButton").on("click", () => {
-      $(".dept").toggle();
-      $("#down").toggle();
-      $("#right").toggle();
-    });
-
-    $(".events").on("click", () => {
-      $(".event").toggle();
-      $("#down1").toggle();
-      $("#right1").toggle();
-    });
-
-    return () => {
-      $(".toggleButton").off("click");
-      $(".events").off("click");
-    };
-  }, []);
-
- 
-
+import General from './Generaldepartment';
+import CMEdepartment from './Cmedepartment';
+import ECEdepartment from "./Ecedepartment";
+import EEEdepartment from "./Eeedepartment";
+import Mechdepartment from "./Mechdepartment";
+const Leftnavigation = () => {
+const navigate = useNavigate(); // Initialize useNavigate
   const handleLogout = () => {
     sessionStorage.removeItem("username"); // Clear session
     navigate("/"); // Redirect to login page
@@ -57,25 +31,23 @@ import General from './Generaldepartment'
 
           <div className="departments department">
             <button className="toggleButton">
-              <FontAwesomeIcon icon={faArrowDown} id="down" />
-              <FontAwesomeIcon icon={faArrowRight} id="right" />
-              DEPARTMENTS
+              <FontAwesomeIcon icon={faArrowDown} id="down" style={{ fontSize: '20px'}}/>
+               DEPARTMENTS
               <FontAwesomeIcon icon={faBuilding} id="build" />
             </button>
             <div className="dept">
               <button onClick={() => navigate("/General") }>General Department</button>
-              <button>CME Department</button>
-              <button>ECE Department</button>
-              <button>EEE Department</button>
-              <button>MECH Department</button>
+              <button onClick={() => navigate("/CMEdepartment") }>CME Department</button>
+              <button onClick={() => navigate("/ECEdepartment") }>ECE Department</button>
+              <button onClick={() => navigate("/EEEdepartment") }>EEE Department</button>
+              <button onClick={() => navigate("/Mechdepartment") }>MECH Department</button>
             </div>
           </div>
 
           <div className="departments">
             <button className="events">
               <FontAwesomeIcon icon={faArrowDown} id="down1" />
-              <FontAwesomeIcon icon={faArrowRight} id="right1" />
-              EVENTS
+               EVENTS
               <FontAwesomeIcon icon={faCalendar} id="event" />
             </button>
             <div className="event">

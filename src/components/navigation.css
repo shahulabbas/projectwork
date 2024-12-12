@@ -128,6 +128,7 @@ header .right nav ul button {
     justify-content: space-between;
     align-items: space-between;
     text-align: center;
+    background: transparent;
 }
 
 .logincontainer .box2 form .text {
@@ -196,6 +197,10 @@ header .right nav ul button {
     flex-direction: column;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     overflow-y: scroll;
+}
+
+.main .left::-webkit-scrollbar {
+    display: none;
 }
 
 
@@ -275,6 +280,7 @@ header .right nav ul button {
 .toggleButton #down,
 #right {
     margin: 0 10px;
+    font-size: 20px;
 }
 
 .events #down1,

@@ -14,14 +14,18 @@
     display: flex;
 }
 
+.content {
+    width: 100%;
+    height: 90vh;
+    overflow-y: scroll;
+    background-color: #fff;
+}
+
 .homecontainer .box2 form {
     display: grid;
-    width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     padding: 20px;
-    height: 80vh;
-    overflow-y: scroll;
 }
 
 .homecontainer .box2 form .form {
@@ -29,7 +33,6 @@
     flex-direction: column;
     padding: 10px 20px;
     text-transform: capitalize;
-    background-color: #fff;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 10px;
     justify-content: center;
@@ -41,6 +44,10 @@
 
 .homecontainer .box2 form .form label {
     margin: 10px 0;
+}
+
+.homecontainer .box2 form .form .title {
+    padding: 10px 0 10px 10px;
 }
 
 .homecontainer .box2 form .form input {

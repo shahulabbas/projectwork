@@ -59,6 +59,8 @@ const Home = () => {
         <div>
           <Leftnavigation />
         </div>
+        <div className="content">
+        <marquee behavior="" direction="">upload the leatest news or updates here</marquee>
 
         <form action="">
           {news.length === 0 ? (
@@ -69,11 +71,12 @@ const Home = () => {
                 <legend>{`news-${index + 1}`}</legend>
                 <label htmlFor={`title-${index + 1}`}>Title</label>
                 <input
+                  className="title"
                   type="text"
                   id={`title-${index + 1}`}
                   name={`title[${index + 1}]`}
                   placeholder={item.title || `Enter the title of the Update ${index + 1}`}
-                   onChange={(e) => item.title = e.target.value} // Handle title change
+                  onChange={(e) => item.title = e.target.value} // Handle title change
                 />
                 <label htmlFor={`url-${index + 1}`}>Link</label>
                 <input
@@ -95,6 +98,7 @@ const Home = () => {
             ))
           )}
         </form>
+      </div>
       </div>
     </div>
   );

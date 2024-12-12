@@ -12,7 +12,7 @@ $requestMethod = $_SERVER['REQUEST_METHOD'];
 
 if ($requestMethod === 'GET') {
     // Fetch all data from the table
-    $sql = "SELECT * FROM `generaldept`";
+    $sql = "SELECT * FROM `ecedept`";
     $result = $conn->query($sql);
 
     $data = [];
@@ -39,11 +39,11 @@ if ($requestMethod === 'GET') {
         // Check if image is uploaded
         if ($image && $image['tmp_name']) {
             $imageBlob = file_get_contents($image['tmp_name']);
-            $sql = "UPDATE `generaldept` SET name = ?, profession = ?, image = ? WHERE id = ?";
+            $sql = "UPDATE `ecedept` SET name = ?, profession = ?, image = ? WHERE id = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("sssi", $name, $profession, $imageBlob, $id);
         } else {
-            $sql = "UPDATE `generaldept` SET name = ?, profession = ? WHERE id = ?";
+            $sql = "UPDATE `ecedept` SET name = ?, profession = ? WHERE id = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("ssi", $name, $profession, $id);
         }

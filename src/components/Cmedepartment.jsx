@@ -4,7 +4,7 @@ import Header from "./Headerpage";
 import Leftnavigation from "./Leftnavigation";
 import "./generaldept.css";
 
-const Generaldepartment = () => {
+const Cmedepartment = () => {
   const [data, setData] = useState([]);
   const [files, setFiles] = useState([]);
   const [names, setNames] = useState([]);
@@ -13,7 +13,7 @@ const Generaldepartment = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost/GitHub/projectwork/backend/genaral-dept-img.php")
+    fetch("http://localhost/GitHub/projectwork/backend/cme-dept-img.php")
       .then((response) => response.json())
       .then((data) => {
         if (data) {
@@ -68,7 +68,7 @@ const Generaldepartment = () => {
       formData.append("image", files[id]);
     }
 
-    fetch("http://localhost/GitHub/projectwork/backend/genaral-dept-img.php", {
+    fetch("http://localhost/GitHub/projectwork/backend/cme-dept-img.php", {
       method: "POST",
       body: formData,
     })
@@ -103,7 +103,7 @@ const Generaldepartment = () => {
           <Leftnavigation />
         </div>
         <div id="right">
-        <div className="cme"> <h2>GENERAL DEPARTMENT </h2></div>
+            <div className="cme"> <h2>DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING </h2></div>
           <marquee behavior="" direction="">While updating the data refresh the page to display the data</marquee>
           {loading ? (
             <p>Loading...</p>
@@ -155,4 +155,4 @@ const Generaldepartment = () => {
   );
 };
 
-export default Generaldepartment;
+export default Cmedepartment;

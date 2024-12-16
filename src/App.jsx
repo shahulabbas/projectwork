@@ -9,6 +9,7 @@ import Cmedepartment from './components/Cmedepartment';
 import ECEdepartment from './components/Ecedepartment';
 import EEEdepartment from './components/Eeedepartment';
 import Mechdepartment from './components/Mechdepartment';
+import Generaldeptevents from './components/Generaldeptevents';
 function App() {
   return (
     <Router>
@@ -21,6 +22,7 @@ function App() {
         <Route path="/ECEdepartment" element={<ECEdepartment />} />
         <Route path="/EEEdepartment" element={<EEEdepartment />} />
         <Route path="/Mechdepartment" element={<Mechdepartment />} />
+        <Route path="/Generaldeptevents" element={<Generaldeptevents />} />
        </Routes>
     </Router>
   );

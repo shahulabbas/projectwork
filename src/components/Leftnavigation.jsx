@@ -10,6 +10,7 @@ import CMEdepartment from './Cmedepartment';
 import ECEdepartment from "./Ecedepartment";
 import EEEdepartment from "./Eeedepartment";
 import Mechdepartment from "./Mechdepartment";
+import Generaldeptevents from "./Generaldeptevents";
 const Leftnavigation = () => {
 const navigate = useNavigate(); // Initialize useNavigate
   const handleLogout = () => {
@@ -51,7 +52,7 @@ const navigate = useNavigate(); // Initialize useNavigate
               <FontAwesomeIcon icon={faCalendar} id="event" />
             </button>
             <div className="event">
-              <button>General Department</button>
+              <button onClick={() => navigate("/Generaldeptevents") }>General Department</button>
               <button>CME Department</button>
               <button>ECE Department</button>
               <button>EEE Department</button>
